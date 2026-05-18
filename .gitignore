@@ -3,3 +3,4 @@ __pycache__/
 env/
 .env
 ENV/
+operating_systems/DEADLOCK_DESIGN.md

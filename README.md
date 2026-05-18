@@ -5,11 +5,12 @@
 ### Overview
 
 This project demonstrates three educational applications of Answer Set Programming (ASP) 
-across three Computer Science subjects:
+across four Computer Science subjects:
 
 1. **Principles of Programming Languages (PPL)** — Type Checking and Inference  
 2. **Database Systems** — Functional Dependency Analysis and Normalization Verification  
 3. **Discrete Mathematics** — Graph Coloring and Hamiltonian Path Problems  
+4. **Operating Systems** — Deadlock Detection and Recovery Suggestions  
 
 Each application includes ASP encodings, example instances, a Python runner script, and 
 detailed explanations of the stable models produced.
@@ -59,6 +60,14 @@ pip install -r requirements.txt
 │   │   └── bipartite.lp        # Bipartite graph
 │   └── run.py                  # Python runner & output analyzer
 │
+├── operating_systems/          # Application 4: OS — Deadlock Detection & Recovery
+│   ├── deadlock_detection.lp   # ASP encoding for wait-for graph analysis
+│   ├── examples/               # Example resource allocation snapshots
+│   │   ├── no_deadlock.lp      # Wait chains without deadlock cycles
+│   │   ├── two_deadlock.lp     # Deadlock cycles with shared vertices
+│   │   └── four_cycles.lp      # Multiple overlapping deadlock cycles
+│   └── run.py                  # Python runner & output analyzer
+│
 ├── run_all.py                  # Run all three applications
 └── specs.pdf                   # Assignment specification
 ```
@@ -84,6 +93,9 @@ python database/run.py
 
 # Discrete Mathematics — Graph Problems
 python discrete_math/run.py
+
+# Operating Systems — Deadlock Detection & Recovery
+python operating_systems/run.py
 ```
 
 ---
@@ -96,8 +108,7 @@ Models a simple typed lambda calculus with integers, booleans, and function type
 ASP rules encode typing judgments (Γ ⊢ e : τ) declaratively. Given an expression AST 
 and partial type annotations, the solver infers types or detects type errors.
 
-**Key concepts demonstrated:** Type rules, type environments, Hindley-Milner style inference, 
-type error detection.
+**Key concepts demonstrated:** Type rules, type environments, Hindley-Milner style inference, type error detection.
 
 #### 2. Database: Functional Dependency Analysis
 
@@ -115,6 +126,15 @@ Demonstrates ASP's natural ability to encode NP-complete problems declaratively.
 
 **Key concepts demonstrated:** Graph coloring, chromatic number, Hamiltonian paths, 
 constraint satisfaction.
+
+#### 4. Operating Systems: Deadlock Detection and Recovery Suggestions
+
+Models a single-instance resource allocation snapshot as a wait-for graph.  
+ASP rules derive blocked processes, detect deadlock cycles through reachability, 
+and select a minimum-size set of processes to terminate so all cycles are broken.
+
+**Key concepts demonstrated:** Resource allocation graphs, wait-for graphs, 
+deadlock cycle detection, minimum recovery set optimization.
 
 ---
 
